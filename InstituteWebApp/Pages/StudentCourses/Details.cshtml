@@ -1,0 +1,36 @@
+﻿@page
+@model InstituteWebApp.StudentCourses.DetailsModel
+
+@{
+    ViewData["Title"] = "Student Course Details";
+}
+
+<h1>Student Course Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentCourse.Course)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentCourse.Course.CourseName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentCourse.Student)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentCourse.Student.StudentName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentCourse.Fee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentCourse.Fee)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit"  class="btn btn-primary" asp-route-id="@Model.StudentCourse.StudentCourseID">Edit</a> |
+    <a asp-page="./Index">View Student Course Enrollment</a>
+</div>

@@ -1,0 +1,48 @@
+﻿@page
+@model InstituteWebApp.StudentCourses.IndexModel
+
+@{
+    ViewData["Title"] = "View Student Course Enrollment";
+}
+
+    <h1>View Student Course Enrollment</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Enroll Student to Course</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentCourse[0].Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentCourse[0].Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentCourse[0].Fee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.StudentCourse) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fee)
+            </td>
+            <td>
+                <a asp-page="./Edit"  class="btn btn-primary" asp-route-id="@item.StudentCourseID">Edit</a> |
+                <a asp-page="./Details"  class="btn btn-primary" asp-route-id="@item.StudentCourseID">Details</a> |
+                <a asp-page="./Delete"  class="btn btn-primary" asp-route-id="@item.StudentCourseID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

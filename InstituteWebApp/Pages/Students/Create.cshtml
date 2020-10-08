@@ -1,0 +1,42 @@
+﻿@page
+@model InstituteWebApp.CreateModel
+
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+<h1>Add New Student</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Student.StudentName" class="control-label"></label>
+                <input asp-for="Student.StudentName" class="form-control" />
+                <span asp-validation-for="Student.StudentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.FatherName" class="control-label"></label>
+                <input asp-for="Student.FatherName" class="form-control" />
+                <span asp-validation-for="Student.FatherName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.ContactNo" class="control-label"></label>
+                <input asp-for="Student.ContactNo" class="form-control" />
+                <span asp-validation-for="Student.ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">View All Student</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

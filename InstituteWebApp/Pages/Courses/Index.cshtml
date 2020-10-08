@@ -1,0 +1,42 @@
+﻿@page
+@model InstituteWebApp.Courses.IndexModel
+
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<h1>View All Course Details</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Add New Course</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].CourseFee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Course) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseFee)
+            </td>
+            <td>
+                <a asp-page="./Edit" class="btn btn-primary" asp-route-id="@item.CourseID">Edit</a> |
+                <a asp-page="./Details" class="btn btn-primary" asp-route-id="@item.CourseID">Details</a> |
+                <a asp-page="./Delete" class="btn btn-primary" asp-route-id="@item.CourseID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
